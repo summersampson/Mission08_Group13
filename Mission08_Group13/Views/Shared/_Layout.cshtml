@@ -5,52 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Task Manager - Mission 08</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white !important;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-        }
-
-        .hero-section {
-            background: #f8f9fa;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .footer {
-            background-color: #343a40;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -76,7 +31,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Optional) -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container text-center">
             <h1 class="hero-title">Welcome to Your Task Manager</h1>
@@ -84,11 +39,22 @@
         </div>
     </section>
 
-    <!-- Main Content Section -->
+    <!-- Main Content Section (Modified to Grid Layout) -->
     <div class="container mt-4 content">
         <div class="row">
-            <div class="col-md-12">
+            <!-- Left Sidebar -->
+            <div class="col-1 sidebar">
+                <p>Something</p>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-6">
                 @RenderBody()
+            </div>
+
+            <!-- Right Sidebar / Extra Section -->
+            <div class="col-2">
+                <p>A Third</p>
             </div>
         </div>
     </div>
