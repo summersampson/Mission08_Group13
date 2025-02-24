@@ -6,6 +6,13 @@ namespace Mission08_Group13.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -28,5 +35,16 @@ namespace Mission08_Group13.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+        //not sure if i need to change this to ViewBag.Tasks instead?
+        public IActionResult Quadrants()
+        {
+            var tasks = _context.Tasks
+                .Where(t => !t.IsComplete) // Only show incomplete tasks
+                .ToList();
+
+            return View(tasks);
+        }
+
     }
 }
