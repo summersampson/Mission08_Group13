@@ -16,10 +16,10 @@ namespace Mission08_Group13.Controllers
 
         public IActionResult Index()
         {
+            var tasks = _context.Tasks.ToList();
             return View("Quadrants");
         }
 
-   
         //not sure if i need to change this to ViewBag.Tasks instead?
         public IActionResult Quadrants()
         {
