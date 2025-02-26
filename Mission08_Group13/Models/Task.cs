@@ -9,7 +9,7 @@ public class Task
     public int TaskId { get; set; }
 
     [Required]
-    public string TaskName { get; set; }
+    public string? TaskName { get; set; }
 
     [Required]
     public int Quadrant { get; set; } // 1-4 Quadrants

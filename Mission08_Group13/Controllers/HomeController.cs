@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission08_Group13.Models;
 
 namespace Mission08_Group13.Controllers
@@ -17,7 +18,7 @@ namespace Mission08_Group13.Controllers
         public IActionResult Index()
         {
             var tasks = _context.Tasks.ToList();
-            return View("Quadrants");
+            return View(tasks);
         }
 
         //not sure if i need to change this to ViewBag.Tasks instead?
