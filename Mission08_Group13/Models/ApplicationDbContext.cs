@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Mission08_Group13.Models;
+namespace Mission08_Group13.Models;
 
 public class ApplicationDbContext : DbContext
 {
@@ -8,7 +9,7 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<Mission08_Group13.Models.Task> Tasks { get; set; } // Ensure this exists!
+    public DbSet<Task> Tasks { get; set; } // Ensure this exists!
 
     public DbSet<Category> Categories { get; set; }
 
