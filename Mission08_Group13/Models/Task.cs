@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission08_Group13.Models;
 
-public class TaskModel
+public class Task
 {
     [Key]
     public int TaskId { get; set; }
@@ -15,8 +16,10 @@ public class TaskModel
 
     public DateTime? DueDate { get; set; }
 
-    [Required]
-    public string Category { get; set; } // Updated to match teammate's format
+    //sets up foreign key relationship
+    [ForeignKey("CategoryId")]
+    public int? CategoryId { get; set; }
+    public Category? Category { get; set; }
 
     public bool IsComplete { get; set; } = false;
 }

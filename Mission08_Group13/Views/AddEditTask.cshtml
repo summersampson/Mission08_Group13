@@ -1,4 +1,4 @@
-﻿@model TaskModel
+﻿@model             Mission08_Group13.Models.Task
 
 @{
     ViewData["Title"] = Model?.TaskId == 0 ? "Add Task" : "Edit Task";
@@ -45,8 +45,8 @@
         </div>
 
         <div class="form-check mb-3">
-            <input asp-for="Completed" type="checkbox" class="form-check-input" />
-            <label asp-for="Completed" class="form-check-label">Completed</label>
+            <input asp-for="IsComplete" type="checkbox" class="form-check-input" />
+            <label asp-for="IsComplete" class="form-check-label">Completed</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Save Task</button>
