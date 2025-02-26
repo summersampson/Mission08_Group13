@@ -13,16 +13,13 @@ namespace Mission08_Group13.Controllers
             _context = context;
         }
 
+
         public IActionResult Index()
         {
-            return View();
+            return View("Quadrants");
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        
+   
         //not sure if i need to change this to ViewBag.Tasks instead?
         public IActionResult Quadrants()
         {
