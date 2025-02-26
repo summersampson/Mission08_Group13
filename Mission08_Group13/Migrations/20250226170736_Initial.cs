@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Mission08_Group13.Models;
 
 #nullable disable
 
