@@ -24,9 +24,9 @@
 
         public void GetTasks() 
         {
-            _context.Tasks
-                .Include(x => x.Category)
-                .ToList();
+           // _context.Tasks
+               // .Include(x => x.Category)
+               // .ToList();
         }
 
     }
