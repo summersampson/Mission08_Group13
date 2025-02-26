@@ -13,18 +13,13 @@ namespace Mission08_Group13.Controllers
             _context = context;
         }
 
+
         public IActionResult Index()
         {
-            var tasks = _context.Tasks.ToList(); // Fetch tasks from the database
-            return View(tasks); // Pass non-null list to the view
+            return View("Quadrants");
         }
 
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        
+   
         //not sure if i need to change this to ViewBag.Tasks instead?
         public IActionResult Quadrants()
         {
