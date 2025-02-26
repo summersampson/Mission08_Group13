@@ -6,16 +6,16 @@
 
 <h1 class="text-center">Task Quadrants</h1>
 
-<div class="container d-flex justify-content-center align-items-center">
-    <!-- Left Image Placeholder -->
-    <div class="d-none d-md-block me-3">
-		<img src="~/images/task1.jpeg" alt="Person working on a task" class="img-fluid" />
-        <img src="~/images/task8.jpeg" alt="Person working on a task" class="img-fluid" />
-        <img src="~/images/task6.jpeg" alt="Person working on a task" class="img-fluid" />
-    </div>
+<div class="container d-flex justify-content-center align-items-start">
+    <!-- Left Image Column -->
+    <div class="d-none d-md-flex flex-column align-items-center me-4">
+        <img src="~/images/task1.jpeg" alt="Person working on a task" class="img-fluid mb-3" style="width: 200px; height: auto;" />
+        <img src="~/images/task8.jpg" alt="Person working on a task pt 2" class="img-fluid mb-3" style="width: 200px; height: auto;" />
+        <img src="~/images/task6.jpg" alt="Person working on a task pt 3" class="img-fluid mb-3" style="width: 200px; height: auto;" />
+	</div>
 
     <!-- Quadrants Container -->
-    <div class="container text-center">
+    <div class="container text-center" style="max-width: 800px;">
         <div class="row">
             <!-- Quadrant I: Important / Urgent -->
             <div class="col-md-6 border p-3">
@@ -24,10 +24,7 @@
                 {
                     <partial name="_TaskPartial" model="task" />
                 }
-                <!-- Placeholder for adding goals -->
-                <div class="mt-2">
-                    <p><em>Room for additional goals...</em></p>
-                </div>
+                <div class="mt-2"><p><em>Room for additional goals...</em></p></div>
             </div>
 
             <!-- Quadrant II: Important / Not Urgent -->
@@ -37,9 +34,7 @@
                 {
                     <partial name="_TaskPartial" model="task" />
                 }
-                <div class="mt-2">
-                    <p><em>Room for additional goals...</em></p>
-                </div>
+                <div class="mt-2"><p><em>Room for additional goals...</em></p></div>
             </div>
         </div>
 
@@ -51,9 +46,7 @@
                 {
                     <partial name="_TaskPartial" model="task" />
                 }
-                <div class="mt-2">
-                    <p><em>Room for additional goals...</em></p>
-                </div>
+                <div class="mt-2"><p><em>Room for additional goals...</em></p></div>
             </div>
 
             <!-- Quadrant IV: Not Important / Not Urgent -->
@@ -63,17 +56,15 @@
                 {
                     <partial name="_TaskPartial" model="task" />
                 }
-                <div class="mt-2">
-                    <p><em>Room for additional goals...</em></p>
-                </div>
+                <div class="mt-2"><p><em>Room for additional goals...</em></p></div>
             </div>
         </div>
     </div>
 
-    <!-- Right Image Placeholder -->
-    <div class="d-none d-md-block ms-3">
-        <img src="~/images/task2.jpeg" alt="Person working on a task" class="img-fluid" />
-        <img src="~/images/task10.jpeg" alt="Person working on a task" class="img-fluid" />
-        <img src="~/images/task9.jpeg" alt="Person working on a task" class="img-fluid" />
+    <!-- Right Image Column -->
+    <div class="d-none d-md-flex flex-column align-items-center ms-4">
+        <img src="~/images/task2.jpg" alt="Person working on a task" class="img-fluid mb-3" style="width: 200px; height: auto;" />
+        <img src="~/images/task10fr.jpg" alt="Person working on a task" class="img-fluid mb-3" style="width: 200px; height: auto;" />
+        <img src="~/images/task9.jpg" alt="Person working on a task" class="img-fluid mb-3" style="width: 200px; height: auto;" />
     </div>
 </div>

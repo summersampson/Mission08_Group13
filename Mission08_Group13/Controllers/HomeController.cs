@@ -15,8 +15,10 @@ namespace Mission08_Group13.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var tasks = _context.Tasks.ToList(); // Fetch tasks from the database
+            return View(tasks); // Pass non-null list to the view
         }
+
 
         public IActionResult Privacy()
         {

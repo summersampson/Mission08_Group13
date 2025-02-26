@@ -42,29 +42,19 @@
         </div>
     </section>
 
-    <!-- Main Content Section (Modified to Grid Layout) -->
+    <!-- Main Content Section (Centered) -->
     <div class="container mt-4 content">
-        <div class="row">
-            <!-- Left Sidebar -->
-            <div class="col-1 sidebar">
-                <p>Something</p>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="col-6">
+        <div class="row justify-content-center">
+            <!-- Main Content Area (Now Full-Width) -->
+            <div class="col-lg-8">
                 @RenderBody()
-            </div>
-
-            <!-- Right Sidebar / Extra Section -->
-            <div class="col-2">
-                <p>A Third</p>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container text-center">
             <p class="mb-0">© 2025 Mission 08 Team. All Rights Reserved.</p>
         </div>
     </footer>

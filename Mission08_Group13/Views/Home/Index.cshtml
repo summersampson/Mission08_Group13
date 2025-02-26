@@ -2,48 +2,5 @@
 
 @{
     ViewData["Title"] = "Task Quadrants";
+    var tasks = Model ?? new List<Mission08_Group13.Models.Task>(); // ✅ Ensure Model is never null
 }
-
-<h1 class="text-center">Task Quadrants</h1>
-
-<div class="container">
-    <div class="row">
-        <!-- Quadrant I: Important / Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant I: Important / Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 1 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
-
-        <!-- Quadrant II: Important / Not Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant II: Important / Not Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 2 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
-    </div>
-
-    <div class="row">
-        <!-- Quadrant III: Not Important / Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant III: Not Important / Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 3 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
-
-        <!-- Quadrant IV: Not Important / Not Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant IV: Not Important / Not Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 4 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
-    </div>
-</div>
