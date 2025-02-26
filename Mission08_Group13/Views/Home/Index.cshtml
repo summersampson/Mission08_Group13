@@ -1,6 +1,25 @@
-﻿@model IEnumerable<Mission08_Group13.Models.Task>
-
-@{
-    ViewData["Title"] = "Task Quadrants";
-    var tasks = Model ?? new List<Mission08_Group13.Models.Task>(); // ✅ Ensure Model is never null
+﻿@{
+    ViewData["Title"] = "Welcome";
 }
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center" style="max-width: 500px;">
+        <p class="lead">
+            Welcome to the **Task Manager App**, a tool designed to help you prioritize and organize your tasks based on the
+            <strong>"Four Quadrants"</strong> method from **Stephen Covey's** book,
+            <em>The 7 Habits of Highly Effective People</em>. Covey teaches that **effective time management** is about
+            <strong>"putting first things first"</strong>—focusing on tasks that truly matter rather than just reacting to urgency.
+        </p>
+        <blockquote class="blockquote">
+            <p class="fst-italic">"What is important is seldom urgent, and what is urgent is seldom important."</p>
+            <footer class="blockquote-footer">Dwight D. Eisenhower</footer>
+        </blockquote>
+        <p class="lead">
+            Our app helps users categorize tasks into four quadrants:
+            <strong>Important & Urgent, Important but Not Urgent, Not Important but Urgent, and Not Important & Not Urgent</strong>.
+            With an intuitive interface, users can **add, edit, update, and delete tasks**, ensuring only active, uncompleted
+            tasks remain visible. Whether managing deadlines, planning long-term projects, or organizing daily responsibilities,
+            this tool encourages productivity and efficiency. Explore the app and take control of your to-do list today! 🚀
+        </p>
+    </div>
+</div>

@@ -31,5 +31,10 @@ namespace Mission08_Group13.Controllers
             return View(tasks);
         }
 
+        public IActionResult AddEditTask()
+        {
+            return View();
+        }
+
     }
 }
