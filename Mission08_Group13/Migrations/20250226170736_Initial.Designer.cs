@@ -11,7 +11,7 @@ using Mission08_Group13.Models;
 namespace Mission08_Group13.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250226031328_Initial")]
+    [Migration("20250226170736_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
