@@ -1,4 +1,4 @@
-@model             IEnumerable<Mission08_Group13.Models.Task>
+@model IEnumerable<Mission08_Group13.Models.Task>
 
 @{
     ViewData["Title"] = "Task Quadrants";
@@ -6,44 +6,74 @@
 
 <h1 class="text-center">Task Quadrants</h1>
 
-<div class="container">
-    <div class="row">
-        <!-- Quadrant I: Important / Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant I: Important / Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 1 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
+<div class="container d-flex justify-content-center align-items-center">
+    <!-- Left Image Placeholder -->
+    <div class="d-none d-md-block me-3">
+		<img src="~/images/task1.jpeg" alt="Person working on a task" class="img-fluid" />
+        <img src="~/images/task8.jpeg" alt="Person working on a task" class="img-fluid" />
+        <img src="~/images/task6.jpeg" alt="Person working on a task" class="img-fluid" />
+    </div>
+
+    <!-- Quadrants Container -->
+    <div class="container text-center">
+        <div class="row">
+            <!-- Quadrant I: Important / Urgent -->
+            <div class="col-md-6 border p-3">
+                <h4 class="small">Quadrant I: Important / Urgent:</h4>
+                @foreach (var task in Model.Where(t => t.Quadrant == 1 && !t.IsComplete))
+                {
+                    <partial name="_TaskPartial" model="task" />
+                }
+                <!-- Placeholder for adding goals -->
+                <div class="mt-2">
+                    <p><em>Room for additional goals...</em></p>
+                </div>
+            </div>
+
+            <!-- Quadrant II: Important / Not Urgent -->
+            <div class="col-md-6 border p-3">
+                <h4 class="small">Quadrant II: Important / Not Urgent:</h4>
+                @foreach (var task in Model.Where(t => t.Quadrant == 2 && !t.IsComplete))
+                {
+                    <partial name="_TaskPartial" model="task" />
+                }
+                <div class="mt-2">
+                    <p><em>Room for additional goals...</em></p>
+                </div>
+            </div>
         </div>
 
-        <!-- Quadrant II: Important / Not Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant II: Important / Not Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 2 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
+        <div class="row mt-3">
+            <!-- Quadrant III: Not Important / Urgent -->
+            <div class="col-md-6 border p-3">
+                <h4 class="small">Quadrant III: Not Important / Urgent:</h4>
+                @foreach (var task in Model.Where(t => t.Quadrant == 3 && !t.IsComplete))
+                {
+                    <partial name="_TaskPartial" model="task" />
+                }
+                <div class="mt-2">
+                    <p><em>Room for additional goals...</em></p>
+                </div>
+            </div>
+
+            <!-- Quadrant IV: Not Important / Not Urgent -->
+            <div class="col-md-6 border p-3">
+                <h4 class="small">Quadrant IV: Not Important / Not Urgent:</h4>
+                @foreach (var task in Model.Where(t => t.Quadrant == 4 && !t.IsComplete))
+                {
+                    <partial name="_TaskPartial" model="task" />
+                }
+                <div class="mt-2">
+                    <p><em>Room for additional goals...</em></p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <!-- Quadrant III: Not Important / Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant III: Not Important / Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 3 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
-
-        <!-- Quadrant IV: Not Important / Not Urgent -->
-        <div class="col-md-6">
-            <h2>Quadrant IV: Not Important / Not Urgent</h2>
-            @foreach (var task in Model.Where(t => t.Quadrant == 4 && !t.IsComplete))
-            {
-                <partial name="_TaskPartial" model="task" />
-            }
-        </div>
+    <!-- Right Image Placeholder -->
+    <div class="d-none d-md-block ms-3">
+        <img src="~/images/task2.jpeg" alt="Person working on a task" class="img-fluid" />
+        <img src="~/images/task10.jpeg" alt="Person working on a task" class="img-fluid" />
+        <img src="~/images/task9.jpeg" alt="Person working on a task" class="img-fluid" />
     </div>
 </div>
