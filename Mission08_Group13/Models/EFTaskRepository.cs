@@ -1,4 +1,6 @@
-﻿namespace Mission08_Group13.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Mission08_Group13.Models
 {
     public class EFTaskRepository : ITaskRepository
     {
@@ -24,9 +26,21 @@
 
         public void GetTasks() 
         {
-           // _context.Tasks
-               // .Include(x => x.Category)
-               // .ToList();
+           _context.Tasks
+               .Include(x => x.Category)
+               .ToList();
+        }
+
+        public void GetId(int id)
+        {
+            _context.Tasks
+                .Single(x => x.TaskId == id);
+        }
+
+        public void UpdateTask(Task updatedInfo)
+        {
+            _context.Tasks.Update(updatedInfo); // the post that updates the record with the updatedInfo passed
+            _context.SaveChanges();
         }
 
     }
