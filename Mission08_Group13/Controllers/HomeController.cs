@@ -14,29 +14,81 @@ namespace Mission08_Group13.Controllers
             _repo = temp;
         }
 
-
         public IActionResult Index()
         {
             var tasks = _repo.Tasks.ToList();
             return View(tasks);
         }
 
-        //not sure if i need to change this to ViewBag.Tasks instead?
         public IActionResult Quadrants()
         {
             var tasks = _repo.Tasks
                 .Where(t => !t.IsComplete) // Only show incomplete tasks
                 .ToList();
 
+            ViewBag.Categories = _repo.Categories.ToList(); // Ensure categories are available
             return View(tasks);
         }
 
-        public IActionResult AddEditTask()
+        public IActionResult AddEditTask(int? id)
         {
             ViewBag.Categories = _repo.Categories.ToList();
 
-            return View();
+            if (id == null || id == 0)
+            {
+                // New Task
+                return View(new Task());
+            }
+            else
+            {
+                // Edit Existing Task
+                var task = _repo.Tasks.FirstOrDefault(t => t.TaskId == id);
+                if (task == null)
+                {
+                    return NotFound();
+                }
+                return View(task);
+            }
         }
 
+        /*[HttpPost]
+        public IActionResult SaveTask(Task task)
+        {
+            if (ModelState.IsValid)
+            {
+                if (task.TaskId == 0) // New Task
+                {
+                    _repo.AddTask(task); // Use repository method
+                }
+                else // Existing Task (Edit)
+                {
+                    _repo.UpdateTask(task); // Use repository method
+                }
+                _repo.SaveChanges(); // Save changes in repository
+                return RedirectToAction("Quadrants");
+            }
+
+            // If validation fails, reload the form with existing data
+            ViewBag.Categories = _repo.Categories.ToList();
+            return View("AddEditTask", task);
+        }
+
+        public IActionResult EditTask(int id)
+        {
+            var task = _repo.Tasks.FirstOrDefault(t => t.TaskId == id);
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.Categories = _repo.Categories.ToList();
+            return View("AddEditTask", task);
+        }
+
+        public IActionResult AddTask()
+        {
+            ViewBag.Categories = _repo.Categories.ToList();
+            return View("AddEditTask", new Task());
+        }*/
     }
 }
