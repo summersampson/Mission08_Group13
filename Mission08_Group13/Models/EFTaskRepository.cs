@@ -11,6 +11,7 @@ namespace Mission08_Group13.Models
         }
 
         public List<Task> Tasks => _context.Tasks.ToList();
+        public List<Category> Categories => _context.Categories.ToList();
 
         public void AddTask(Task t)
         {

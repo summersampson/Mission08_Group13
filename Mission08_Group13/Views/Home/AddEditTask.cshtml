@@ -8,10 +8,10 @@
     <h2 class="text-center">@ViewData["Title"]</h2>
 
     <div class="d-flex justify-content-between mb-3">
-        <a asp-action="Quadrants" asp-controller="Tasks" class="btn btn-secondary">View Quadrants</a>
+        <a asp-action="Quadrants" asp-controller="Home" class="btn btn-secondary">View Quadrants</a>
     </div>
 
-    <form asp-action="SaveTask" asp-controller="Tasks" method="post">
+    <form asp-action="SaveTask" asp-controller="Home" method="post">
         <input type="hidden" asp-for="TaskId" />
 
         <div class="mb-3">
@@ -38,11 +38,12 @@
 
         <div class="mb-3">
             <label asp-for="CategoryId" class="form-label">Category</label>
-            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories">
+            <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))">
                 <option value="">Select a Category</option>
             </select>
             <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
+
 
         <div class="form-check mb-3">
             <input asp-for="IsComplete" type="checkbox" class="form-check-input" />
@@ -50,7 +51,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Save Task</button>
-        <a asp-action="Index" asp-controller="Tasks" class="btn btn-outline-secondary">Cancel</a>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">Cancel</a>
     </form>
 
     <hr />

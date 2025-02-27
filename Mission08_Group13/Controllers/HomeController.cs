@@ -33,6 +33,8 @@ namespace Mission08_Group13.Controllers
 
         public IActionResult AddEditTask()
         {
+            ViewBag.Categories = _repo.Categories.ToList();
+
             return View();
         }
 
