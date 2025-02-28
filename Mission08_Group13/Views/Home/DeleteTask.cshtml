@@ -1,0 +1,18 @@
+﻿@namespace Mission08_Group13
+
+@model Models.Task // single application
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.TaskName</h3>
+
+<!-- this page is to display two options to delete the record chosen or cancel. 
+	If the delete button is pressed it is deleted from the database.
+	If the cancel button is pressed it will return to the MovieList page. -->
+
+<form method="post">
+
+	<input type="hidden" asp-for="TaskId" />
+
+	<button type="submit" class="btn btn-danger">Delete</button>
+	<a class="btn btn-info" asp-controller="Home" asp-action="AddEditTask">Cancel</a>
+</form>

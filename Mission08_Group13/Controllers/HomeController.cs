@@ -33,11 +33,12 @@ namespace Mission08_Group13.Controllers
         public IActionResult AddEditTask(int? id)
         {
             ViewBag.Categories = _repo.Categories.ToList();
+            ViewBag.Tasks = _repo.GetTasks();
 
             if (id == null || id == 0)
             {
                 // New Task
-                return View(new Task());
+                return View(new Models.Task());
             }
             else
             {
@@ -51,8 +52,8 @@ namespace Mission08_Group13.Controllers
             }
         }
 
-        /*[HttpPost]
-        public IActionResult SaveTask(Task task)
+        [HttpPost]
+        public IActionResult SaveTask(Models.Task task)
         {
             if (ModelState.IsValid)
             {
@@ -64,8 +65,7 @@ namespace Mission08_Group13.Controllers
                 {
                     _repo.UpdateTask(task); // Use repository method
                 }
-                _repo.SaveChanges(); // Save changes in repository
-                return RedirectToAction("Quadrants");
+                return RedirectToAction("AddEditTask");
             }
 
             // If validation fails, reload the form with existing data
@@ -88,7 +88,24 @@ namespace Mission08_Group13.Controllers
         public IActionResult AddTask()
         {
             ViewBag.Categories = _repo.Categories.ToList();
-            return View("AddEditTask", new Task());
-        }*/
+            return View("AddEditTask", new Models.Task());
+        }
+
+        [HttpGet]
+        public IActionResult DeleteTask(int id)
+        {
+            var recordToDelete = _repo.GetId(id); // get the record to delete
+
+            return View(recordToDelete); // return the view with the record to delete
+        }
+
+        [HttpPost]
+        public IActionResult DeleteTask(Models.Task recordToDelete)
+        {
+            _repo.RemoveTask(recordToDelete); // remove the record
+
+            return RedirectToAction("AddEditTask"); // return to the MovieList
+        }
+
     }
 }

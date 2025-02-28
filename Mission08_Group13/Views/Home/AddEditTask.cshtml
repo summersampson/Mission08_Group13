@@ -64,7 +64,7 @@
                 <th>Due Date</th>
                 <th>Quadrant</th>
                 <th>Category</th>
-                <th>Completed</th>
+                <th>IsComplete</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -78,9 +78,10 @@
                         <td>@task.DueDate?.ToString("yyyy-MM-dd")</td>
                         <td>@task.Quadrant</td>
                         <td>@task.Category?.CategoryName</td>
-                        <td>@(task.Completed ? "✔" : "❌")</td>
+                        <td>@(task.IsComplete ? "✔" : "❌")</td>
                         <td>
                             <a asp-action="EditTask" asp-route-id="@task.TaskId" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-action="DeleteTask" asp-route-id="@task.TaskId" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }

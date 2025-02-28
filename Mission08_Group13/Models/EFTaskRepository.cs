@@ -25,16 +25,17 @@ namespace Mission08_Group13.Models
             _context.SaveChanges();
         }
 
-        public void GetTasks() 
+
+        public List<Task> GetTasks()
         {
-           _context.Tasks
-               .Include(x => x.Category)
-               .ToList();
+            return _context.Tasks
+                .Include(x => x.Category)
+                .ToList();
         }
 
-        public void GetId(int id)
+        public Task GetId(int id)
         {
-            _context.Tasks
+            return _context.Tasks
                 .Single(x => x.TaskId == id);
         }
 
@@ -43,6 +44,5 @@ namespace Mission08_Group13.Models
             _context.Tasks.Update(updatedInfo); // the post that updates the record with the updatedInfo passed
             _context.SaveChanges();
         }
-
     }
 }
