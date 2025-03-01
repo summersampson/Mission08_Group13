@@ -8,9 +8,6 @@
         <h5 class="card-title">@Model.TaskName</h5>
         <p class="card-text">Due Date: @Model.DueDate?.ToString("MM/dd/yyyy")</p>
         <p class="card-text">Category: @Model.Category.CategoryName</p> 
-
-        <a asp-controller="Home" asp-action="EditTask" asp-route-id="@Model.TaskId" class="btn btn-warning">Edit</a>
-        <a asp-controller="Home" asp-action="DeleteTask" asp-route-id="@Model.TaskId" class="btn btn-danger">Delete</a>
         
             <label class="form-check-label" for="complete-@Model.TaskId">Mark Complete</label>
             <input type="checkbox" class="form-check-input mark-complete" id="complete-@Model.TaskId" data-task-id="@Model.TaskId" @(Model.IsComplete ? "checked disabled" : "") />
