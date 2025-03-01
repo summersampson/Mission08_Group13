@@ -107,5 +107,21 @@ namespace Mission08_Group13.Controllers
             return RedirectToAction("AddEditTask"); // return to the MovieList
         }
 
+        [HttpPost]
+        public IActionResult MarkComplete(int id)
+        {
+            var task = _repo.GetId(id); // Use repository method to get task
+            if (task != null)
+            {
+                task.IsComplete = true;
+                _repo.UpdateTask(task); // Use repository method to update task
+                return Ok();
+            }
+            return NotFound();
+        }
+
+
+
     }
 }
+

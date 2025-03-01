@@ -11,5 +11,7 @@
 
         public Task GetId(int id);
         public List<Task> GetTasks();
+        public void MarkTaskComplete(int id);
+
     }
 }

@@ -64,3 +64,25 @@
         <img src="~/images/task9.jpg" alt="Person working on a task" class="img-fluid mb-3" style="width: 200px; height: auto;" />
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".mark-complete").change(function () {
+            var taskId = $(this).data("task-id");
+            if (this.checked) {
+                $.ajax({
+                    url: "/Home/MarkComplete",
+                    type: "POST",
+                    data: { id: taskId },
+                    success: function () {
+                        location.reload(); // Reload page to reflect changes
+                    },
+                    error: function () {
+                        alert("Failed to update task.");
+                    }
+                });
+            }
+        });
+    });
+</script>

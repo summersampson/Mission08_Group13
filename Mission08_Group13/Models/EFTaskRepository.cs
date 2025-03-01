@@ -44,5 +44,16 @@ namespace Mission08_Group13.Models
             _context.Tasks.Update(updatedInfo); // the post that updates the record with the updatedInfo passed
             _context.SaveChanges();
         }
+
+        public void MarkTaskComplete(int id)
+        {
+            var task = _context.Tasks.Find(id);
+            if (task != null)
+            {
+                task.IsComplete = true;
+                _context.SaveChanges();
+            }
+        }
+
     }
 }
