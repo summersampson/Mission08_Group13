@@ -1,6 +1,7 @@
-﻿@model             Mission08_Group13.Models.Task
+﻿@model Mission08_Group13.Models.Task
 
 @{
+    // Set the page title dynamically based on whether the task is being added or edited
     ViewData["Title"] = Model?.TaskId == 0 ? "Add Task" : "Edit Task";
 }
 
@@ -8,23 +9,27 @@
     <h2 class="text-center">@ViewData["Title"]</h2>
 
     <div class="d-flex justify-content-between mb-3">
+        <!-- Button to navigate to the Quadrants view -->
         <a asp-action="Quadrants" asp-controller="Home" class="btn btn-secondary">View Quadrants</a>
     </div>
 
+    <!-- Form for adding or editing a task -->
     <form asp-action="SaveTask" asp-controller="Home" method="post">
-        <input type="hidden" asp-for="TaskId" />
-
+        <input type="hidden" asp-for="TaskId" /> <!-- Hidden field to store TaskId -->
+        <!-- Task Name Input -->
         <div class="mb-3">
             <label asp-for="TaskName" class="form-label">Task</label>
             <input asp-for="TaskName" class="form-control" required />
-            <span asp-validation-for="TaskName" class="text-danger"></span>
+            <span asp-validation-for="TaskName" class="text-danger"></span> <!-- Validation Message -->
         </div>
 
+        <!-- Due Date Input -->
         <div class="mb-3">
             <label asp-for="DueDate" class="form-label">Due Date</label>
             <input asp-for="DueDate" type="date" class="form-control" />
         </div>
 
+        <!-- Quadrant Selection -->
         <div class="mb-3">
             <label asp-for="Quadrant" class="form-label">Quadrant</label>
             <select asp-for="Quadrant" class="form-select" required>
@@ -33,29 +38,32 @@
                 <option value="3">Not Important / Urgent</option>
                 <option value="4">Not Important / Not Urgent</option>
             </select>
-            <span asp-validation-for="Quadrant" class="text-danger"></span>
+            <span asp-validation-for="Quadrant" class="text-danger"></span> <!-- Validation Message -->
         </div>
 
+        <!-- Category Selection Dropdown -->
         <div class="mb-3">
             <label asp-for="CategoryId" class="form-label">Category</label>
             <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))" required>
-                <option value="">Select a Category</option>
+                <option value="">Select a Category</option> <!-- Placeholder option -->
             </select>
-            <span asp-validation-for="CategoryId" class="text-danger"></span>
+            <span asp-validation-for="CategoryId" class="text-danger"></span> <!-- Validation Message -->
         </div>
 
-
+        <!-- Checkbox for marking task as complete -->
         <div class="form-check mb-3">
             <input asp-for="IsComplete" type="checkbox" class="form-check-input" />
             <label asp-for="IsComplete" class="form-check-label">Completed</label>
         </div>
 
+        <!-- Submit and Cancel Buttons -->
         <button type="submit" class="btn btn-primary">Save Task</button>
         <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">Cancel</a>
     </form>
 
     <hr />
 
+    <!-- Table displaying existing tasks -->
     <h3 class="mt-4">Existing Tasks</h3>
     <table class="table table-bordered">
         <thead>
@@ -78,7 +86,7 @@
                         <td>@task.DueDate?.ToString("yyyy-MM-dd")</td>
                         <td>@task.Quadrant</td>
                         <td>@task.Category?.CategoryName</td>
-                        <td>@(task.IsComplete ? "✔" : "❌")</td>
+                        <td>@(task.IsComplete ? "✔" : "❌")</td> <!-- Shows checkmark if complete, otherwise X -->
                         <td>
                             <a asp-action="EditTask" asp-route-id="@task.TaskId" class="btn btn-warning btn-sm">Edit</a>
                             <a asp-action="DeleteTask" asp-route-id="@task.TaskId" class="btn btn-danger">Delete</a>
@@ -97,5 +105,5 @@
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" /> <!-- Include client-side validation scripts -->
 }
